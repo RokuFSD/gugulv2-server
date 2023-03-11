@@ -37,7 +37,7 @@ export default function passportConnection(
             return done(
               null,
               false,
-              new CustomError("User does not exist", 400)
+              new CustomError("User does not exist", 400, ErrorType.EMAIL)
             );
           }
           const match = await authService.compare(password, user.password);
