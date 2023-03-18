@@ -13,8 +13,8 @@ export default (function authRouter() {
   router.get(
     "/google/callback",
     passport.authenticate("google", {
-      successRedirect: "http://localhost:5173/",
-      failureRedirect: "http://localhost:5173/login",
+      successRedirect: "https://rad-tanuki-d2b7f1.netlify.app/",
+      failureRedirect: "https://rad-tanuki-d2b7f1.netlify.app/login",
     })
   );
   return router;
