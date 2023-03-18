@@ -1,4 +1,7 @@
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://rad-tanuki-d2b7f1.netlify.app",
+];
 
 const corsOptions = {
   origin: (
