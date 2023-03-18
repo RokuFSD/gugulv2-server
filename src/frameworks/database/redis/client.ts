@@ -9,7 +9,9 @@ export default async function redisDbConnection(
   app: express.Application,
   config: IConfig
 ) {
-  const redisClient = createClient();
+  const redisClient = createClient({
+    url: process.env.REDIS_URL!,
+  });
 
   const redisStore = new RedisStore({
     client: redisClient,
