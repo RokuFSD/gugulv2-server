@@ -11,6 +11,9 @@ export default async function redisDbConnection(
 ) {
   const redisClient = createClient({
     url: process.env.REDIS_URL!,
+    socket: {
+      port: 38394,
+    },
   });
 
   const redisStore = new RedisStore({

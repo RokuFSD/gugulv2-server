@@ -33,6 +33,9 @@ const process = __importStar(require("process"));
 async function redisDbConnection(app, config) {
     const redisClient = (0, redis_1.createClient)({
         url: process.env.REDIS_URL,
+        socket: {
+            port: 38394,
+        },
     });
     const redisStore = new connect_redis_1.default({
         client: redisClient,
