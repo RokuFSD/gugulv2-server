@@ -1,4 +1,4 @@
-import("node-fetch");
+import fetch from "node-fetch";
 
 export class IpApiService {
   async getLocation() {
