@@ -6,6 +6,7 @@ export type UserType = {
   email: string;
   password: string;
   favorites: Card[];
+  image: string;
 };
 
 export interface IUser {
@@ -21,12 +22,14 @@ export default class User implements IUser {
   password: string;
   email: string;
   favorites: Card[];
+  image: string;
 
-  constructor(name: string, password: string, email: string) {
+  constructor(name: string, password: string, email: string, image: string) {
     this.name = name;
     this.password = password;
     this.email = email;
     this.favorites = [];
+    this.image = image;
   }
 
   getEmail(): string {

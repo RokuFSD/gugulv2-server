@@ -1,7 +1,7 @@
 import { UserType } from "../../../../entities/user";
 import { IUserRepository } from "../../../../application/repositories/userRepository";
 import { Card } from "../../../../entities/card";
-import UserModel from "../models/user";
+import UserModel, { UserDoc } from "../models/user";
 
 export default class UserRepositoryMongo implements IUserRepository {
   async update(id: string, fields: { [p: string]: string }) {
@@ -12,7 +12,7 @@ export default class UserRepositoryMongo implements IUserRepository {
     return updatedUser;
   }
 
-  async createUser(user: UserType): Promise<UserType> {
+  async createUser(user: UserType): Promise<UserDoc> {
     return await UserModel.create(user);
   }
 
@@ -22,7 +22,7 @@ export default class UserRepositoryMongo implements IUserRepository {
     return user.toObject();
   }
 
-  async getUserById(id: string): Promise<UserType | undefined> {
+  async getUserById(id: string): Promise<UserDoc | undefined> {
     const user = await UserModel.findById(id).exec();
     //TODO: This is bad delete the undefined
     if (!user) return undefined;

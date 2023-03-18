@@ -1,19 +1,20 @@
 import { Card } from "../../entities/card";
 import { UserType } from "../../entities/user";
+import { UserDoc } from "../../frameworks/database/mongo/models/user";
 
 export interface IUserRepository {
-  getUserById(id: string): Promise<UserType | undefined>;
+  getUserById(id: string): Promise<UserDoc | undefined>;
 
-  getUserByEmail(email: string): Promise<UserType | undefined>;
+  getUserByEmail(email: string): Promise<UserDoc | undefined>;
 
-  createUser(user: UserType): Promise<UserType>;
+  createUser(user: UserType): Promise<UserDoc>;
 
   update(
     id: string,
     fields: { [p: string]: string }
-  ): Promise<UserType | undefined>;
+  ): Promise<UserDoc | undefined>;
 
-  getAll(): Promise<UserType[]>;
+  getAll(): Promise<UserDoc[]>;
 
   addFavorite(idUser: string, favorite: Card): Promise<Card[] | undefined>;
 

@@ -1,10 +1,23 @@
 import * as mongoose from "mongoose";
-import { UserType } from "../../../../entities/user";
+import { Card } from "../../../../entities/card";
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema<UserType>(
+export interface UserDoc extends mongoose.Document {
+  googleId: string;
+  name: string;
+  password: string;
+  email: string;
+  favorites: Card[];
+  image: string;
+}
+
+const UserSchema = new Schema(
   {
+    googleId: {
+      type: String,
+      unique: true,
+    },
     name: {
       type: String,
       required: true,
@@ -33,11 +46,14 @@ const UserSchema = new Schema<UserType>(
       ],
       required: false,
     },
+    image: {
+      type: String,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const UserModel = mongoose.model<UserType>("User", UserSchema);
+const UserModel = mongoose.model<UserDoc>("User", UserSchema);
 export default UserModel;

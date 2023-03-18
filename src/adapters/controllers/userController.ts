@@ -40,6 +40,7 @@ export default function userController(
         name,
         password,
         email,
+        "",
         currentUserRepository,
         currentAuthService
       );

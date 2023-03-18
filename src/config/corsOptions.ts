@@ -8,7 +8,7 @@ const corsOptions = {
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      callback(new Error("Not allowed by Cors"));
+      callback(new Error("Not allowed by Cors :c"));
     }
   },
   credentials: true,

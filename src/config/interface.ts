@@ -3,4 +3,6 @@ export interface IConfig {
   serpKey: string;
   mongoURI: string;
   redisSecret: string;
+  googleId: string;
+  googleSecret: string;
 }

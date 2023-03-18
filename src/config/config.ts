@@ -16,4 +16,6 @@ export default {
   serpKey: process.env.SERP_KEY,
   mongoURI: process.env.MONGO_URI,
   redisSecret: process.env.REDIS_SECRET,
+  googleId: process.env.GOOGLE_CLIENT_ID,
+  googleSecret: process.env.GOOGLE_CLIENT_SECRET,
 } as IConfig;
