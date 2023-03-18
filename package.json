@@ -7,7 +7,8 @@
     "coverage": "vitest --coverage",
     "start": "nodemon src/app.ts",
     "debug": "node --inspect-brk -r ts-node/register src/app.ts",
-    "lint": "eslint --ext .ts src"
+    "lint": "eslint --ext .ts src",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
