@@ -31,7 +31,9 @@ const connect_redis_1 = __importDefault(require("connect-redis"));
 const redis_1 = require("redis");
 const process = __importStar(require("process"));
 async function redisDbConnection(app, config) {
-    const redisClient = (0, redis_1.createClient)();
+    const redisClient = (0, redis_1.createClient)({
+        url: process.env.REDIS_URL,
+    });
     const redisStore = new connect_redis_1.default({
         client: redisClient,
     });

@@ -1,11 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IpApiService = void 0;
-import("node-fetch");
 class IpApiService {
     async getLocation() {
         const location = await fetch("https://ipapi.co/json/", {
-            method: "GET",
             headers: {
                 User: "nodejs-ipapi-v1.02",
             },

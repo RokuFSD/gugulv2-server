@@ -1,9 +1,6 @@
-import fetch from "node-fetch";
-
 export class IpApiService {
   async getLocation() {
     const location = await fetch("https://ipapi.co/json/", {
-      method: "GET",
       headers: {
         User: "nodejs-ipapi-v1.02",
       },
@@ -17,6 +14,7 @@ export class IpApiService {
     };
   }
 }
+
 //
 // export class IpApiMock {
 //   async getLocation() {
