@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IpApiMock = exports.IpApiService = void 0;
+exports.IpApiService = void 0;
 import("node-fetch");
 class IpApiService {
     async getLocation() {
@@ -20,14 +20,14 @@ class IpApiService {
     }
 }
 exports.IpApiService = IpApiService;
-class IpApiMock {
-    async getLocation() {
-        return {
-            country_name: "United States",
-            region: "California",
-            city: "San Francisco",
-            country: "us",
-        };
-    }
-}
-exports.IpApiMock = IpApiMock;
+//
+// export class IpApiMock {
+//   async getLocation() {
+//     return {
+//       country_name: "United States",
+//       region: "California",
+//       city: "San Francisco",
+//       country: "us",
+//     };
+//   }
+// }

@@ -1,7 +1,7 @@
 import config from "../../config/config";
-import serpApi from "../../mocks/serpApi";
-import vidSerp from "../../mocks/vidSerp";
-import newsSerp from "../../mocks/newsSerp";
+// import serpApi from "../../mocks/serpApi";
+// import vidSerp from "../../mocks/vidSerp";
+// import newsSerp from "../../mocks/newsSerp";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const SerpApi = require("google-search-results-nodejs");
@@ -22,22 +22,22 @@ export class SerpApiService {
   }
 }
 
-export class SerpApiMock {
-  async search(params: {
-    [key: string]: string;
-  }): Promise<{ [key: string]: any }> {
-    return new Promise((resolve) => {
-      switch (params.tbm) {
-        case "nws":
-          resolve(newsSerp);
-          break;
-        case "vid":
-          resolve(vidSerp);
-          break;
-        default:
-          resolve(serpApi);
-      }
-      resolve(serpApi);
-    });
-  }
-}
+// export class SerpApiMock {
+//   async search(params: {
+//     [key: string]: string;
+//   }): Promise<{ [key: string]: any }> {
+//     return new Promise((resolve) => {
+//       switch (params.tbm) {
+//         case "nws":
+//           resolve(newsSerp);
+//           break;
+//         case "vid":
+//           resolve(vidSerp);
+//           break;
+//         default:
+//           resolve(serpApi);
+//       }
+//       resolve(serpApi);
+//     });
+//   }
+// }

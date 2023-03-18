@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SerpApiMock = exports.SerpApiService = void 0;
+exports.SerpApiService = void 0;
 const config_1 = __importDefault(require("../../config/config"));
-const serpApi_1 = __importDefault(require("../../mocks/serpApi"));
-const vidSerp_1 = __importDefault(require("../../mocks/vidSerp"));
-const newsSerp_1 = __importDefault(require("../../mocks/newsSerp"));
+// import serpApi from "../../mocks/serpApi";
+// import vidSerp from "../../mocks/vidSerp";
+// import newsSerp from "../../mocks/newsSerp";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const SerpApi = require("google-search-results-nodejs");
 const search = new SerpApi.GoogleSearch(config_1.default.serpKey);
@@ -23,21 +23,22 @@ class SerpApiService {
     }
 }
 exports.SerpApiService = SerpApiService;
-class SerpApiMock {
-    async search(params) {
-        return new Promise((resolve) => {
-            switch (params.tbm) {
-                case "nws":
-                    resolve(newsSerp_1.default);
-                    break;
-                case "vid":
-                    resolve(vidSerp_1.default);
-                    break;
-                default:
-                    resolve(serpApi_1.default);
-            }
-            resolve(serpApi_1.default);
-        });
-    }
-}
-exports.SerpApiMock = SerpApiMock;
+// export class SerpApiMock {
+//   async search(params: {
+//     [key: string]: string;
+//   }): Promise<{ [key: string]: any }> {
+//     return new Promise((resolve) => {
+//       switch (params.tbm) {
+//         case "nws":
+//           resolve(newsSerp);
+//           break;
+//         case "vid":
+//           resolve(vidSerp);
+//           break;
+//         default:
+//           resolve(serpApi);
+//       }
+//       resolve(serpApi);
+//     });
+//   }
+// }

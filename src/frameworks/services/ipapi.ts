@@ -17,14 +17,14 @@ export class IpApiService {
     };
   }
 }
-
-export class IpApiMock {
-  async getLocation() {
-    return {
-      country_name: "United States",
-      region: "California",
-      city: "San Francisco",
-      country: "us",
-    };
-  }
-}
+//
+// export class IpApiMock {
+//   async getLocation() {
+//     return {
+//       country_name: "United States",
+//       region: "California",
+//       city: "San Francisco",
+//       country: "us",
+//     };
+//   }
+// }
