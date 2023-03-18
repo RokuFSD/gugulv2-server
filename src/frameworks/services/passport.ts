@@ -34,7 +34,7 @@ export default function passportConnection(
       {
         clientID: config.googleId,
         clientSecret: config.googleSecret,
-        callbackURL: "http://localhost:5005/auth/google/callback",
+        callbackURL: "https://gugul-srv.onrender.com/auth/google/callback",
         passReqToCallback: true,
         scope: ["email", "profile"],
       },
