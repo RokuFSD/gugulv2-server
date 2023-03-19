@@ -1,5 +1,3 @@
-import("node-fetch");
-
 export class IpApiService {
   async getLocation() {
     const location = await fetch("https://ipapi.co/json/", {
