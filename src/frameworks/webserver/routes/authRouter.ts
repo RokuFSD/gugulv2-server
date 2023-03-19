@@ -15,7 +15,7 @@ export default (function authRouter() {
     passport.authenticate(
       "google",
       {
-        failureRedirect: "https://rad-tanuki-d2b7f1.netlify.app/login",
+        failureRedirect: "https://gugul-searchv2.onrender.com/login",
       },
       (req: Request, res: Response, next: NextFunction) => {
         console.log(req);
@@ -23,7 +23,7 @@ export default (function authRouter() {
           if (err) {
             return next(err);
           }
-          return res.redirect("https://rad-tanuki-d2b7f1.netlify.app");
+          return res.redirect("https://gugul-searchv2.onrender.com");
         });
       }
     )
