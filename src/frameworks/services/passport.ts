@@ -24,6 +24,7 @@ export default function passportConnection(
     const { _id } = user as UserType;
     if (!_id) return done(null, false);
     const userDb = await userRepository.getUserById(_id);
+    console.log("On desarializer", userDb)
     done(null, userDb);
   });
 
@@ -34,7 +35,7 @@ export default function passportConnection(
       {
         clientID: config.googleId,
         clientSecret: config.googleSecret,
-        callbackURL: "https://gugul-srv.onrender.com/auth/google/callback",
+        callbackURL: "/auth/google/callback",
         passReqToCallback: true,
         scope: ["email", "profile"],
       },
@@ -59,6 +60,7 @@ export default function passportConnection(
               authService
             );
             await newUser.set("googleId", profile.id);
+            console.log(user);
             return done(null, newUser);
           }
           return done(null, user);

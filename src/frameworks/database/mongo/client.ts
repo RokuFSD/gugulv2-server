@@ -34,6 +34,7 @@ export default async function mongoStoreConnection(
   // await redisClient.connect();
 
   function startSession() {
+    app.set("trust proxy", 1);
     app.use(
       session({
         store: mongoStore,
