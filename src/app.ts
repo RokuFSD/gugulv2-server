@@ -5,7 +5,7 @@ import routes from "./frameworks/webserver/routes";
 import serverConfig from "./frameworks/webserver/server";
 import expressConfig from "./frameworks/webserver/express";
 import mongoDbConnection from "./frameworks/database/mongo/connection";
-import redisDbConnection from "./frameworks/database/redis/client";
+import mongoStoreConnection from "./frameworks/database/mongo/client";
 import passportConnection from "./frameworks/services/passport";
 import AuthServiceLocal from "./frameworks/services/authService";
 import UserRepositoryMongo from "./frameworks/database/mongo/repositories/userRepositoryMongo";
@@ -16,7 +16,7 @@ const server = http.createServer(app);
 
 expressConfig(app);
 
-redisDbConnection(app, config).then(({ startSession }) => {
+mongoStoreConnection(app, config).then(({ startSession }) => {
   startSession();
   // Passport configuration
   passportConnection(
