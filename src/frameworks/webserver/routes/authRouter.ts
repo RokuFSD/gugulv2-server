@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { NextFunction, Request, Response, Router } from "express";
 import authController from "../../../adapters/controllers/authController";
 import authRole from "../middlewares/authRole";
 import passport from "passport";
@@ -12,10 +12,21 @@ export default (function authRouter() {
   router.get("/google", passport.authenticate("google", { session: true }));
   router.get(
     "/google/callback",
-    passport.authenticate("google", {
-      successRedirect: "https://rad-tanuki-d2b7f1.netlify.app",
-      failureRedirect: "https://rad-tanuki-d2b7f1.netlify.app/login",
-    })
+    passport.authenticate(
+      "google",
+      {
+        failureRedirect: "https://rad-tanuki-d2b7f1.netlify.app/login",
+      },
+      (req: Request, res: Response, next: NextFunction) => {
+        console.log(req);
+        req.logIn(req.user!, function (err) {
+          if (err) {
+            return next(err);
+          }
+          return res.redirect("https://rad-tanuki-d2b7f1.netlify.app");
+        });
+      }
+    )
   );
   return router;
 })();
