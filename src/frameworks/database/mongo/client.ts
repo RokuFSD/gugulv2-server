@@ -12,27 +12,6 @@ export default async function mongoStoreConnection(
     collectionName: "sessions",
   });
 
-  // const redisClient = createClient();
-  //
-  // const redisStore = new RedisStore({
-  //   client: redisClient,
-  // });
-  //
-  // redisClient.on("error", (err: Error) => {
-  //   console.log("Redis error: ", err.stack);
-  //   process.exit(1);
-  // });
-  //
-  // redisClient.on("connect", () => {
-  //   console.log("Redis connected");
-  // });
-  //
-  // redisClient.on("ready", () => {
-  //   console.log("Redis ready");
-  // });
-  //
-  // await redisClient.connect();
-
   function startSession() {
     app.set("trust proxy", 1);
     app.use(

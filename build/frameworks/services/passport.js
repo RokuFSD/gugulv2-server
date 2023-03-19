@@ -24,7 +24,7 @@ function passportConnection(app, userRepository, authService) {
     passport_1.default.use("google", new passport_google_oauth2_1.Strategy({
         clientID: config_1.default.googleId,
         clientSecret: config_1.default.googleSecret,
-        callbackURL: "http://localhost:5005/auth/google/callback",
+        callbackURL: "/auth/google/callback",
         passReqToCallback: true,
         scope: ["email", "profile"],
     }, async function (request, accessToken, refreshToken, profile, done) {

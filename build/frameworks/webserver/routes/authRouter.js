@@ -15,8 +15,8 @@ exports.default = (function authRouter() {
     router.post("/login", controller.login);
     router.get("/google", passport_1.default.authenticate("google", { session: true }));
     router.get("/google/callback", passport_1.default.authenticate("google", {
-        successRedirect: "http://localhost:5173/",
-        failureRedirect: "http://localhost:5173/login",
+        failureRedirect: "https://gugul-searchv2.onrender.com/login",
+        successRedirect: "https://gugul-searchv2.onrender.com",
     }));
     return router;
 })();
